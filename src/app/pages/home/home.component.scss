@@ -1,24 +1,82 @@
+/* Fondo suave con degradado, coherente con la marca */
 .hero {
-  background: radial-gradient(1200px 400px at 30% -10%, #ffffff 0%, transparent 70%),
-              var(--kairos-beige);
-  padding: 2.2rem 0 1.8rem;
+  background:
+    radial-gradient(1400px 480px at 30% -10%, #ffffff 0%, transparent 70%),
+    var(--kairos-beige);
+  padding: 2.8rem 0 2.4rem;
   border-bottom: 1px solid var(--kairos-sand);
 }
+
 .hero__inner {
   display: grid;
-  grid-template-columns: 1.4fr 1fr;
-  gap: 1.5rem;
-  align-items: center;
+  place-items: center;
 }
-.hero__text h1 { font-size: clamp(2rem, 5vw, 3.2rem); margin: 0 0 .4rem; }
-.hero__subtitle { font-size: 1.15rem; margin: 0 0 1rem; }
-.hero__cta { display: flex; gap: .8rem; margin: 1rem 0; flex-wrap: wrap; }
-.hero__note { font-size: .9rem; opacity: .8; }
-.hero__card ul { margin: .6rem 0 0 1rem; }
 
-/* breakpoint tablet/móvil */
+.hero__content {
+  text-align: center;
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Logo grande arriba */
+.hero__logo {
+  width: clamp(96px, 14vw, 140px);
+  height: auto;
+  display: block;
+  margin: 0 auto 0.75rem;
+  filter: drop-shadow(0 8px 20px rgba(0,0,0,.06));
+}
+
+/* Título y subtítulo */
+.hero__title {
+  font-size: clamp(2.2rem, 6vw, 3.4rem);
+  margin: 0 0 .5rem;
+  letter-spacing: 1px;
+}
+
+.hero__subtitle {
+  font-size: clamp(1.05rem, 2.2vw, 1.2rem);
+  margin: 0 auto 1.2rem;
+  color: var(--kairos-text);
+  max-width: 60ch;
+}
+
+/* CTAs */
+.hero__cta {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: .8rem;
+  margin: .6rem 0 1rem;
+}
+
+/* Nota corta */
+.hero__note {
+  font-size: .95rem;
+  opacity: .85;
+  margin: 0;
+}
+
+/* Sección "Cómo trabajamos" */
+.how {
+  padding: 2rem 0 2.4rem;
+}
+.how__card { padding: 1.4rem 1.2rem 1.6rem; }
+.how__title { margin: .2rem 0 0.6rem; }
+.how__text {
+  margin: 0 0 1rem;
+  max-width: 75ch;
+}
+.how__actions {
+  display: flex;
+  gap: .8rem;
+  flex-wrap: wrap;
+}
+
+/* Responsive tweaks */
 @media (max-width: 980px) {
-  .hero__inner { grid-template-columns: 1fr; }
-  .hero__card { order: 2; }
-  .hero__text { order: 1; }
+  .hero { padding: 2.2rem 0 2rem; }
+}
+@media (max-width: 600px) {
+  .how__card { padding: 1.1rem 1rem 1.2rem; }
 }

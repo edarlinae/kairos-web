@@ -1,4 +1,4 @@
-<header class="header">
+<header class="header" [class.is-open]="menuOpen">
   <div class="container header__inner">
     <!-- Marca -->
     <a routerLink="/" class="brand" (click)="closeMenu()">
@@ -6,18 +6,42 @@
       <span class="brand__name font-cinzel">KAIRÓS</span>
     </a>
 
-    <!-- Botón hamburguesa (solo móvil) -->
+    <!-- Botón hamburguesa -->
     <button
       class="burger"
       type="button"
-      aria-label="Abrir menú"
+      [class.is-open]="menuOpen"
+      aria-label="Menú"
       [attr.aria-expanded]="menuOpen"
       (click)="toggleMenu()">
-      <span></span><span></span><span></span>
+      <span class="line"></span>
+      <span class="line"></span>
+      <span class="line"></span>
     </button>
 
-    <!-- Navegación -->
-    <nav class="nav" [class.is-open]="menuOpen">
+    <!-- Navegación (desktop) -->
+    <nav class="nav nav--desktop">
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Inicio</a>
+      <a routerLink="/servicios" routerLinkActive="active">Servicios</a>
+      <a routerLink="/agenda" routerLinkActive="active">Agenda</a>
+      <a routerLink="/comunidad" routerLinkActive="active">Comunidad</a>
+      <a routerLink="/equipo" routerLinkActive="active">Equipo</a>
+      <a routerLink="/blog" routerLinkActive="active">Blog</a>
+      <a routerLink="/contacto" routerLinkActive="active">Contacto</a>
+    </nav>
+
+    <div class="actions actions--desktop">
+      <a routerLink="/agenda" class="btn btn-primary">Reservar</a>
+      <a routerLink="/comunidad" class="btn btn-outline">Unirme</a>
+    </div>
+  </div>
+
+  <!-- Overlay -->
+  <div class="overlay" *ngIf="menuOpen" (click)="closeMenu()" aria-hidden="true"></div>
+
+  <!-- Panel móvil -->
+  <nav class="panel" [class.is-open]="menuOpen" aria-label="Navegación móvil">
+    <div class="panel__inner">
       <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" (click)="closeMenu()">Inicio</a>
       <a routerLink="/servicios" routerLinkActive="active" (click)="closeMenu()">Servicios</a>
       <a routerLink="/agenda" routerLinkActive="active" (click)="closeMenu()">Agenda</a>
@@ -26,17 +50,10 @@
       <a routerLink="/blog" routerLinkActive="active" (click)="closeMenu()">Blog</a>
       <a routerLink="/contacto" routerLinkActive="active" (click)="closeMenu()">Contacto</a>
 
-      <!-- Acciones (se muestran aquí en móvil) -->
-      <div class="actions actions--mobile">
+      <div class="panel__actions">
         <a routerLink="/agenda" class="btn btn-primary" (click)="closeMenu()">Reservar</a>
         <a routerLink="/comunidad" class="btn btn-outline" (click)="closeMenu()">Unirme</a>
       </div>
-    </nav>
-
-    <!-- Acciones (solo escritorio) -->
-    <div class="actions actions--desktop">
-      <a routerLink="/agenda" class="btn btn-primary">Reservar</a>
-      <a routerLink="/comunidad" class="btn btn-outline">Unirme</a>
     </div>
-  </div>
+  </nav>
 </header>

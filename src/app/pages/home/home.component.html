@@ -1,39 +1,42 @@
+<!-- HERO PRINCIPAL -->
 <section class="hero">
   <div class="container hero__inner">
-    <div class="hero__text">
-      <h1 class="font-cinzel">Kairós</h1>
+    <div class="hero__content">
+      <!-- Logo grande -->
+      <img src="/assets/logoKairos.png" alt="Kairós" class="hero__logo" />
+
+      <!-- Nombre -->
+      <h1 class="font-cinzel hero__title">Kairós</h1>
+
+      <!-- Frase -->
       <p class="hero__subtitle">
-        Gabinete Psicosocial Integral — tu momento de equilibrio.
+        Cuidamos tu bienestar en cuerpo, mente y conexión social,
+        tanto en persona como en línea.
       </p>
 
+      <!-- CTAs (sin funcionalidad por ahora) -->
       <div class="hero__cta">
-        <a routerLink="/agenda" class="btn btn-primary">Reservar Taller</a>
-        <a routerLink="/comunidad" class="btn btn-outline">Unirme a la Comunidad</a>
+        <button class="btn btn-primary" type="button">Reservar Taller</button>
+        <button class="btn btn-outline" type="button">Unirme a la Comunidad</button>
       </div>
-      <p class="hero__note">Talleres y charlas de bienestar. No psicoterapia clínica.</p>
-    </div>
 
-    <div class="hero__card card">
-      <h3 class="font-cinzel" style="margin-top:0;">Nuestros pilares</h3>
-      <ul>
-        <li>Bienestar presencial (estrés, yoga, creatividad)</li>
-        <li>Acompañamiento digital (meditaciones, retos)</li>
-        <li>Comunidad y apoyo continuo</li>
-      </ul>
+      <!-- Nota legal corta -->
+      <p class="hero__note">Talleres y charlas de bienestar.</p>
     </div>
   </div>
 </section>
 
-<section class="container" style="margin-top:2rem;">
-  <div class="card">
-    <h2 class="font-cinzel" style="margin-top:0;">¿Cómo trabajamos?</h2>
-    <p>
+<!-- CÓMO TRABAJAMOS -->
+<section class="container how">
+  <div class="card how__card">
+    <h2 class="font-cinzel how__title">¿Cómo trabajamos?</h2>
+    <p class="how__text">
       Vivencia presencial + continuidad online. Disfruta de talleres transformadores y
       mantén el impulso con nuestra comunidad digital.
     </p>
-    <div style="display:flex; gap:1rem; flex-wrap:wrap;">
-      <a routerLink="/servicios" class="btn btn-outline">Ver Servicios</a>
-      <a routerLink="/blog" class="btn btn-outline">Leer Recursos</a>
+    <div class="how__actions">
+      <a routerLink="/servicios" class="btn btn-outline">Ver servicios</a>
+      <a routerLink="/blog" class="btn btn-outline">Últimas publicaciones</a>
     </div>
   </div>
 </section>
