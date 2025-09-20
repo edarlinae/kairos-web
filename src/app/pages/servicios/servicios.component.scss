@@ -1,16 +1,184 @@
-.servicios { padding: 1.5rem 0 2rem; }
-.intro { max-width: 70ch; margin-bottom: 1rem; }
+.servicios { padding: 1.6rem 0 2.2rem; }
 
+/* Encabezado */
+.head {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+.head h1 { margin: 0 0 .4rem; }
+.lead {
+  margin: 0 auto;
+  max-width: 70ch;
+  opacity: .95;
+}
+
+/* Grid de tarjetas */
 .grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1rem;
+  align-items: start;
+  margin-top: 1rem;
 }
-.card h2 { margin-top: 0; }
-.card .list { margin: .6rem 0 0 1.1rem; }
-.card .actions { margin-top: 1rem; display: flex; gap: .6rem; }
-.card .nota { display:block; margin-top:.8rem; opacity:.8; }
 
+/* Tarjetas */
+.card {
+  background: #fff;
+  border: 1px solid var(--kairos-sand);
+  border-radius: 18px;
+  padding: 1.2rem;
+  box-shadow: 0 10px 24px rgba(0,0,0,.05);
+}
+.card--brand {
+  border-color: color-mix(in oklab, var(--kairos-petrol) 30%, #fff);
+}
+
+.card__head {
+  display: grid;
+  gap: .35rem;
+  margin-bottom: .4rem;
+}
+.card__head .sub {
+  opacity: .9;
+  margin: 0;
+  font-size: .98rem;
+}
+
+/* Chips */
+.pill {
+  display: inline-block;
+  font-weight: 700;
+  font-size: .8rem;
+  letter-spacing: .3px;
+  padding: .25rem .55rem;
+  border-radius: 999px;
+  color: var(--kairos-petrol);
+  background: #fff;
+  border: 1px solid var(--kairos-sand);
+  width: fit-content;
+}
+.pill--soft {
+  color: #2f6d66;
+  background: #f6faf8;
+  border-color: #e2efe9;
+}
+
+/* Lista con checks */
+.list {
+  margin: .6rem 0 .2rem 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: .4rem;
+}
+.list li {
+  display: grid;
+  grid-template-columns: 20px 1fr;
+  align-items: start;
+  gap: .5rem;
+}
+.list svg {
+  width: 18px; height: 18px;
+  color: var(--kairos-petrol);
+  margin-top: .15rem;
+}
+
+/* Badges auxiliares */
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  margin-top: .6rem;
+}
+.badge {
+  padding: .28rem .55rem;
+  border: 1px solid var(--kairos-sand);
+  border-radius: 999px;
+  font-size: .85rem;
+  font-weight: 600;
+  color: var(--kairos-petrol);
+  background: #fff;
+}
+
+/* Acciones */
+.actions { margin-top: .9rem; display: flex; gap: .6rem; }
+.note { display: block; margin-top: .7rem; opacity: .8; }
+
+/* Asegurar texto blanco en botones primarios (enlaces y botones) */
+.btn-primary,
+a.btn.btn-primary { color: #fff !important; }
+
+/* Próximos talleres */
+.upcoming { margin-top: 1.8rem; }
+.upcoming h3 { margin: 0 0 .9rem; }
+.upcoming__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: .9rem;
+}
+.u-card {
+  background: #fff;
+  border: 1px solid var(--kairos-sand);
+  border-radius: 16px;
+  padding: 1rem;
+  box-shadow: 0 8px 18px rgba(0,0,0,.05);
+  display: grid;
+  gap: .5rem;
+}
+.u-title { margin: 0; font-weight: 700; color: var(--kairos-petrol); }
+.u-meta { display: flex; flex-wrap: wrap; gap: .4rem; }
+.u-chip {
+  padding: .22rem .5rem;
+  border: 1px solid var(--kairos-sand);
+  border-radius: 999px;
+  font-size: .84rem;
+}
+.u-spots { opacity: .85; }
+.u-actions { margin-top: .2rem; }
+.u-more { margin-top: 1rem; display: flex; justify-content: center; }
+
+/* FAQ */
+.faq { margin-top: 1.8rem; }
+.faq h3 { margin: 0 0 .7rem; }
+.faq__list { display: grid; gap: .6rem; }
+.faq__item {
+  border: 1px solid var(--kairos-sand);
+  border-radius: 14px;
+  background: #fff;
+  overflow: hidden;
+}
+.faq__q {
+  width: 100%;
+  text-align: left;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: .6rem;
+  padding: .8rem .9rem;
+  border: 0;
+  background: #fff;
+  font-weight: 700;
+  color: var(--kairos-petrol);
+  cursor: pointer;
+}
+.faq__q:focus-visible { outline: 2px solid var(--kairos-sage); outline-offset: 2px; }
+.faq__q .chev { width: 20px; height: 20px; transition: transform .2s ease; }
+.faq__a {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height .25s ease, opacity .2s ease, padding .2s ease;
+  padding: 0 .9rem;
+}
+.faq__a.is-open {
+  padding: .2rem .9rem .9rem;
+  max-height: 180px;
+  opacity: 1;
+}
+.faq__item:has(.faq__a.is-open) .chev { transform: rotate(180deg); }
+
+/* Responsive */
 @media (max-width: 980px) {
   .grid { grid-template-columns: 1fr; }
+  .upcoming__grid { grid-template-columns: 1fr; }
 }
