@@ -1,0 +1,26 @@
+<header class="header">
+  <div class="container header__inner">
+    <!-- Marca con logo -->
+    <a routerLink="/" class="brand">
+      <img src="assets/logoKairos.png" alt="Kairós" width="38" height="38" />
+      <span class="brand__name font-cinzel">KAIRÓS</span>
+    </a>
+
+    <!-- Menú de navegación -->
+    <nav class="nav">
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Inicio</a>
+      <a routerLink="/servicios" routerLinkActive="active">Servicios</a>
+      <a routerLink="/agenda" routerLinkActive="active">Agenda</a>
+      <a routerLink="/comunidad" routerLinkActive="active">Comunidad</a>
+      <a routerLink="/equipo" routerLinkActive="active">Equipo</a>
+      <a routerLink="/blog" routerLinkActive="active">Blog</a>
+      <a routerLink="/contacto" routerLinkActive="active">Contacto</a>
+    </nav>
+
+    <!-- Botones de acción -->
+    <div class="actions">
+      <a routerLink="/agenda" class="btn btn-primary">Reservar</a>
+      <a routerLink="/comunidad" class="btn btn-outline">Unirme</a>
+    </div>
+  </div>
+</header>

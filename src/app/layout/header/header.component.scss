@@ -1,0 +1,49 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: var(--kairos-beige);
+  border-bottom: 1px solid var(--kairos-sand);
+  backdrop-filter: saturate(140%) blur(6px);
+}
+
+.header__inner {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 18px;
+  padding: .8rem 0;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  text-decoration: none;
+}
+.brand__name {
+  font-weight: 700;
+  color: var(--kairos-petrol);
+  letter-spacing: 1px;
+  font-size: 1.1rem;
+}
+
+/* La .nav ya está reforzada en styles.scss, pero mantenemos aquí también */
+.nav {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.nav a {
+  color: var(--kairos-petrol);
+  text-decoration: none;
+  padding: .4rem .6rem;
+  border-radius: 8px;
+  font-weight: 600;
+}
+.nav a.active, .nav a:hover {
+  background: #ffffff90;
+}
+
+.actions { display: flex; gap: .6rem; }

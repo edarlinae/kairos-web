@@ -1,0 +1,11 @@
+import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
+
+@Component({
+  standalone: true,
+  selector: 'app-home',
+  imports: [RouterLink],
+  styleUrls: ['./home.component.scss'],
+  templateUrl: './home.component.html',
+})
+export class HomeComponent {}
