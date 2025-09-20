@@ -74,3 +74,8 @@ header .nav a {
 }
 header .nav a:hover,
 header .nav a.active { background: #ffffff90; }
+/* Contenedor con respiración extra en móviles */
+@media (max-width: 600px) {
+  .container { width: min(1100px, 94%); }
+}
+
