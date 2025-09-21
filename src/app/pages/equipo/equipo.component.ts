@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-equipo',
   standalone: true,
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './equipo.component.html',
-  styleUrl: './equipo.component.scss'
+  styleUrls: ['./equipo.component.scss'],
 })
-export class EquipoComponent {
-
-}
+export class EquipoComponent {}
