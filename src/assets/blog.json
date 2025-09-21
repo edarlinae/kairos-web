@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "title": "Cómo gestionar el estrés en el día a día",
+    "date": "2025-09-01",
+    "excerpt": "Pequeños hábitos que marcan la diferencia para recuperar la calma en medio de la rutina.",
+    "content": "El estrés forma parte de la vida moderna, pero podemos aprender a gestionarlo mejor. En este artículo compartimos técnicas sencillas como la respiración consciente, pausas activas y la importancia de un descanso adecuado.",
+    "image": "assets/blog/estres.jpg",
+    "category": "Salud mental"
+  },
+  {
+    "id": 2,
+    "title": "Taller de relajación y mindfulness en Kairos",
+    "date": "2025-09-10",
+    "excerpt": "Nuestro último taller dejó grandes experiencias. Aquí te contamos cómo fue y compartimos algunas fotos.",
+    "content": "El pasado sábado celebramos un taller de mindfulness donde exploramos la meditación guiada, la relajación corporal y ejercicios prácticos. Fue una jornada de conexión y bienestar que queremos repetir muy pronto.",
+    "image": "assets/blog/taller.jpg",
+    "category": "Talleres"
+  }
+]
