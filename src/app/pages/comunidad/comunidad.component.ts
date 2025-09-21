@@ -10,9 +10,10 @@ import { NgFor } from '@angular/common';
   styleUrls: ['./comunidad.component.scss'],
 })
 export class ComunidadComponent {
-  // Usamos directamente el asset correcto
+  // Logo correcto (igual que la cabecera)
   logo = '/assets/logoKairos.png';
 
+  // ÚNICA lista que usa el HTML:
   pasos = [
     {
       n: 1,
