@@ -1,1 +1,79 @@
-<p>comunidad works!</p>
+<section class="comunidad container">
+  <!-- Hero -->
+  <header class="hero">
+    <div class="hero__copy">
+      <h1 class="font-cinzel">Comunidad Online Kairós</h1>
+      <p class="lead">
+        Un espacio digital para cuidarte con calma, donde estarás en compañía de nuestro equipo profesional y nuestra comunidad online, 
+        tanto desde nuestras aplicaciones como en talleres grupales y canales directos.
+      </p>
+
+      <div class="cta">
+        <a routerLink="/contacto" class="btn btn-primary btn-white-text">Unirme a la comunidad</a>
+        <a routerLink="/contacto" class="btn btn-outline">Contacta con nosotros</a>
+      </div>
+    </div>
+
+    <div class="hero__logo">
+      <!-- Logo correcto (mismo asset que cabecera) -->
+      <img src="/assets/logoKairos.png" alt="Kairós" />
+    </div>
+  </header>
+
+  <!-- Cómo funciona -->
+  <section class="steps">
+    <h2 class="font-cinzel">¿Cómo funciona?</h2>
+    <div class="steps__grid">
+      <article class="step" *ngFor="let p of pasos">
+        <div class="badge">{{ p.n }}</div>
+        <h3>{{ p.t }}</h3>
+        <p>{{ p.d }}</p>
+      </article>
+    </div>
+
+    <div class="steps__cta">
+      <a routerLink="/contacto" class="btn btn-outline">Contacta con nosotros</a>
+      <small class="muted">Resuelve todas tus dudas</small>
+    </div>
+  </section>
+
+  <!-- Programas / Aplicaciones -->
+  <section class="programas">
+    <header class="programas__head">
+      <h2 class="font-cinzel">Nuestras aplicaciones</h2>
+      <p class="sub">
+        Programas digitales que combinan recursos guiados, retos y soporte comunitario.
+      </p>
+    </header>
+
+    <!-- Espacio sutil antes de la tarjeta -->
+    <div style="height:.6rem"></div>
+
+    <article class="programa">
+      <div class="programa__tag">
+        <span class="pill">Programa</span>
+        <span class="pill pill--soft">Gestión del Estrés</span>
+        <span class="pill">Programa guiado</span>
+        <span class="pill">Comunidad Online</span>
+      </div>
+
+      <h3 class="font-cinzel">Un plan práctico para calmar la mente</h3>
+      <p class="intro">
+        Reorganiza hábitos y recupera energía. Meditaciones guiadas, ejercicios de respiración, retos semanales y
+        seguimiento amable.
+      </p>
+
+      <ul class="bullets">
+        <li>Meditaciones y respiraciones guiadas</li>
+        <li>Retos semanales con recordatorios</li>
+        <li>Bitácora personal y métricas sencillas</li>
+        <li>Foro moderado y apoyo del equipo</li>
+      </ul>
+
+      <div class="programa__cta">
+        <a routerLink="/contacto" class="btn btn-primary btn-white-text">Unirme a esta comunidad</a>
+        <a routerLink="/agenda" class="btn btn-outline">Ver próximos talleres</a>
+      </div>
+    </article>
+  </section>
+</section>

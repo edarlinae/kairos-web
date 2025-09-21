@@ -1,1 +1,97 @@
-<p>agenda works!</p>
+<section class="agenda container">
+  <!-- Encabezado -->
+  <header class="head">
+    <h1 class="font-cinzel">Agenda</h1>
+    <p class="lead">
+      Fechas y actividades programadas. Filtra por tipo, periodo o busca por título/lugar.
+    </p>
+  </header>
+
+  <!-- Filtros -->
+  <section class="filters" aria-label="Filtros de agenda">
+    <div class="filters__row">
+      <!-- Periodo -->
+      <div class="group">
+        <span class="label">Periodo</span>
+        <div class="chips">
+          <button
+            type="button"
+            class="chip"
+            [class.is-active]="isActive(periodo, 'mes-actual')"
+            (click)="setPeriodo('mes-actual')">Este mes</button>
+
+          <button
+            type="button"
+            class="chip"
+            [class.is-active]="isActive(periodo, 'mes-siguiente')"
+            (click)="setPeriodo('mes-siguiente')">Próximo mes</button>
+
+          <button
+            type="button"
+            class="chip"
+            [class.is-active]="isActive(periodo, 'todos')"
+            (click)="setPeriodo('todos')">Todos</button>
+        </div>
+      </div>
+
+      <!-- Tipo -->
+      <div class="group">
+        <span class="label">Tipo</span>
+        <div class="chips">
+          <button type="button" class="chip" [class.is-active]="isActive(tipo, 'todos')" (click)="setTipo('todos')">Todos</button>
+          <button type="button" class="chip" [class.is-active]="isActive(tipo, 'taller')" (click)="setTipo('taller')">Taller</button>
+          <button type="button" class="chip" [class.is-active]="isActive(tipo, 'meditacion')" (click)="setTipo('meditacion')">Meditación</button>
+          <button type="button" class="chip" [class.is-active]="isActive(tipo, 'charla')" (click)="setTipo('charla')">Charla</button>
+          <button type="button" class="chip" [class.is-active]="isActive(tipo, 'creatividad')" (click)="setTipo('creatividad')">Creatividad</button>
+        </div>
+      </div>
+
+      <!-- Búsqueda -->
+      <div class="group group--search">
+        <label for="q" class="label">Buscar</label>
+        <input id="q" [(ngModel)]="query" (ngModelChange)="onBuscar()" type="search" placeholder="Título o lugar…" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Lista -->
+  <section class="list">
+    <div class="grid" *ngIf="filtered.length; else vacio">
+      <article class="card" *ngFor="let e of filtered">
+        <div class="card__date">
+          <div class="day">{{ e.start | date:'d':'':'es' }}</div>
+          <div class="month">{{ e.start | date:'MMM':'':'es' }}</div>
+        </div>
+
+        <div class="card__content">
+          <h3 class="title">{{ e.title }}</h3>
+
+          <div class="meta">
+            <span class="chip">
+              {{ e.start | date:'EEE d MMM · HH:mm':'':'es' }}
+              <ng-container *ngIf="e.end">– {{ e.end | date:'HH:mm':'':'es' }}</ng-container>
+            </span>
+
+            <span class="chip" *ngIf="e.location">{{ e.location }}</span>
+            <span class="chip chip--type" *ngIf="e.type">{{ e.type }}</span>
+          </div>
+
+          <div class="spots" *ngIf="e.spotsLeft !== undefined">
+            Quedan {{ e.spotsLeft }} plazas
+          </div>
+
+          <div class="actions">
+            <a routerLink="/contacto" class="btn btn-primary btn-white-text">Reservar</a>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <ng-template #vacio>
+      <div class="empty">
+        <p>No hay actividades para los filtros seleccionados.</p>
+        <a class="btn btn-outline" (click)="query=''; setPeriodo('todos'); setTipo('todos')">Limpiar filtros</a>
+      </div>
+    </ng-template>
+  </section>
+</section>

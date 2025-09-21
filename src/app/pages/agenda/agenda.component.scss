@@ -1,0 +1,160 @@
+.agenda {
+  padding: 1.6rem 0 2.2rem;
+
+  .head {
+    margin-bottom: .9rem;
+
+    h1 { margin: 0 0 .2rem; }
+    .lead { opacity: .85; margin: 0; }
+  }
+}
+
+/* Filtros */
+.filters {
+  margin: .8rem 0 1.2rem;
+  background: rgba(0,0,0,.03);
+  border: 1px solid rgba(0,0,0,.06);
+  border-radius: 16px;
+  padding: .9rem;
+
+  &__row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: .8rem;
+  }
+
+  .group {
+    display: flex;
+    flex-direction: column;
+    gap: .4rem;
+
+    &--search input {
+      height: 40px;
+      border: 1px solid rgba(0,0,0,.15);
+      border-radius: 10px;
+      padding: 0 .7rem;
+      outline: none;
+    }
+    &--search input:focus {
+      border-color: rgba(0,0,0,.25);
+      box-shadow: 0 0 0 2px rgba(0,0,0,.06) inset;
+    }
+  }
+
+  .label {
+    font-size: .86rem;
+    opacity: .75;
+  }
+
+  .chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .4rem;
+  }
+
+  .chip {
+    background: #fff;
+    border: 1px solid rgba(0,0,0,.12);
+    padding: .35rem .6rem;
+    border-radius: 999px;
+    font-size: .9rem;
+    cursor: pointer;
+    transition: .15s ease;
+  }
+  .chip:hover { transform: translateY(-1px); }
+  .chip.is-active {
+    background: #0f5b53;         /* verde Kairós */
+    color: #fff;
+    border-color: #0f5b53;
+  }
+
+  @media (max-width: 980px) {
+    &__row { grid-template-columns: 1fr; }
+  }
+}
+
+/* Lista */
+.list .grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: .9rem;
+
+  @media (max-width: 980px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  display: grid;
+  grid-template-columns: 74px 1fr;
+  gap: .8rem;
+  border: 1px solid rgba(0,0,0,.08);
+  border-radius: 16px;
+  background: #fff;
+  padding: .8rem;
+
+  &__date {
+    align-self: center;
+    text-align: center;
+    background: #f4f2ee;
+    border-radius: 12px;
+    padding: .5rem .4rem;
+
+    .day   { font-size: 1.4rem; line-height: 1; font-weight: 700; color: #0f5b53; }
+    .month { font-size: .85rem; text-transform: uppercase; opacity: .8; }
+  }
+
+  .title { margin: 0 0 .25rem; }
+  .meta  { display: flex; flex-wrap: wrap; gap: .4rem; margin-bottom: .4rem; }
+
+  .chip {
+    background: rgba(0,0,0,.04);
+    border: 1px solid rgba(0,0,0,.06);
+    border-radius: 999px;
+    padding: .25rem .55rem;
+    font-size: .86rem;
+  }
+  .chip--type { text-transform: capitalize; }
+
+  .spots { opacity: .85; margin-bottom: .6rem; }
+
+  .actions .btn { min-width: 140px; }
+}
+
+/* Estado vacío */
+.empty {
+  text-align: center;
+  border: 1px dashed rgba(0,0,0,.15);
+  border-radius: 14px;
+  padding: 1.2rem;
+  background: #fff;
+  p { margin: 0 0 .7rem; }
+}
+
+/* Botones base (reutiliza tu sistema si ya lo tienes) */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  padding: 0 .9rem;
+  border-radius: 10px;
+  border: 1px solid rgba(0,0,0,.18);
+  background: #fff;
+  cursor: pointer;
+  text-decoration: none;
+}
+.btn:hover { transform: translateY(-1px); transition: .15s ease; }
+
+.btn-primary {
+  background: #0f5b53;
+  color: #fff;
+  border-color: #0f5b53;
+}
+.btn-white-text { color: #fff; }
+
+.btn-outline {
+  background: transparent;
+  color: #0f5b53;
+  border-color: #0f5b53;
+}

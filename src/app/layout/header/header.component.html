@@ -1,59 +1,46 @@
-<header class="header" [class.is-open]="menuOpen">
+<header class="header">
   <div class="container header__inner">
-    <!-- Marca -->
-    <a routerLink="/" class="brand" (click)="closeMenu()">
-      <img [src]="logoUrl" alt="Kairós" class="brand__logo" />
-      <span class="brand__name font-cinzel">KAIRÓS</span>
+    <a class="brand" routerLink="/inicio" aria-label="Ir a inicio">
+      <img src="/assets/logoKairos.png" alt="Kairós" class="brand__logo" />
+      <span class="brand__name">KAIRÓS</span>
     </a>
 
-    <!-- Botón hamburguesa -->
-    <button
-      class="burger"
-      type="button"
-      [class.is-open]="menuOpen"
-      aria-label="Menú"
-      [attr.aria-expanded]="menuOpen"
-      (click)="toggleMenu()">
-      <span class="line"></span>
-      <span class="line"></span>
-      <span class="line"></span>
-    </button>
-
-    <!-- Navegación (desktop) -->
-    <nav class="nav nav--desktop">
-      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Inicio</a>
-      <a routerLink="/servicios" routerLinkActive="active">Servicios</a>
-      <a routerLink="/agenda" routerLinkActive="active">Agenda</a>
-      <a routerLink="/comunidad" routerLinkActive="active">Comunidad</a>
-      <a routerLink="/equipo" routerLinkActive="active">Equipo</a>
-      <a routerLink="/blog" routerLinkActive="active">Blog</a>
-      <a routerLink="/contacto" routerLinkActive="active">Contacto</a>
+    <nav class="nav" aria-label="Principal">
+      <a routerLink="/inicio" routerLinkActive="is-active">Inicio</a>
+      <a routerLink="/servicios" routerLinkActive="is-active">Servicios</a>
+      <a routerLink="/agenda" routerLinkActive="is-active">Agenda</a>
+      <a routerLink="/comunidad" routerLinkActive="is-active">Comunidad</a>
+      <a routerLink="/equipo" routerLinkActive="is-active">Equipo</a>
+      <a routerLink="/blog" routerLinkActive="is-active">Blog</a>
+      <a routerLink="/contacto" routerLinkActive="is-active">Contacto</a>
     </nav>
 
     <div class="actions actions--desktop">
-      <a routerLink="/agenda" class="btn btn-primary">Reservar</a>
+      <a routerLink="/contacto" class="btn btn-primary">Reservar</a>
       <a routerLink="/comunidad" class="btn btn-outline">Unirme</a>
     </div>
+
+    <!-- Botón hamburguesa -->
+    <button class="hamburger" type="button" (click)="toggleMenu()" aria-label="Abrir menú">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 
-  <!-- Overlay -->
-  <div class="overlay" *ngIf="menuOpen" (click)="closeMenu()" aria-hidden="true"></div>
-
   <!-- Panel móvil -->
-  <nav class="panel" [class.is-open]="menuOpen" aria-label="Navegación móvil">
-    <div class="panel__inner">
-      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" (click)="closeMenu()">Inicio</a>
-      <a routerLink="/servicios" routerLinkActive="active" (click)="closeMenu()">Servicios</a>
-      <a routerLink="/agenda" routerLinkActive="active" (click)="closeMenu()">Agenda</a>
-      <a routerLink="/comunidad" routerLinkActive="active" (click)="closeMenu()">Comunidad</a>
-      <a routerLink="/equipo" routerLinkActive="active" (click)="closeMenu()">Equipo</a>
-      <a routerLink="/blog" routerLinkActive="active" (click)="closeMenu()">Blog</a>
-      <a routerLink="/contacto" routerLinkActive="active" (click)="closeMenu()">Contacto</a>
-
-      <div class="panel__actions">
-        <a routerLink="/agenda" class="btn btn-primary" (click)="closeMenu()">Reservar</a>
-        <a routerLink="/comunidad" class="btn btn-outline" (click)="closeMenu()">Unirme</a>
-      </div>
+  <div class="overlay" *ngIf="menuOpen" (click)="closeMenu()" aria-hidden="true"></div>
+  <aside class="panel" [class.is-open]="menuOpen" aria-label="Menú móvil">
+    <nav class="panel__nav">
+      <a routerLink="/inicio" (click)="closeMenu()">Inicio</a>
+      <a routerLink="/servicios" (click)="closeMenu()">Servicios</a>
+      <a routerLink="/agenda" (click)="closeMenu()">Agenda</a>
+      <a routerLink="/comunidad" (click)="closeMenu()">Comunidad</a>
+      <a routerLink="/equipo" (click)="closeMenu()">Equipo</a>
+      <a routerLink="/blog" (click)="closeMenu()">Blog</a>
+      <a routerLink="/contacto" (click)="closeMenu()">Contacto</a>
+    </nav>
+    <div class="panel__actions">
+      <a routerLink="/contacto" class="btn btn-primary" (click)="closeMenu()">Reservar</a>
+      <a routerLink="/comunidad" class="btn btn-outline" (click)="closeMenu()">Unirme</a>
     </div>
-  </nav>
+  </aside>
 </header>

@@ -1,10 +1,11 @@
 import { Component, HostListener } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [RouterLink, RouterLinkActive],
+  imports: [RouterLink, RouterLinkActive, NgIf], // 👈 añade NgIf
   styleUrls: ['./header.component.scss'],
   templateUrl: './header.component.html',
 })

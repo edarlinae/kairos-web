@@ -1,0 +1,16 @@
+.contacto {
+  padding: 1.6rem 0 2rem;
+
+  .lead { opacity: .85; margin-bottom: 1rem; }
+
+  &__card {
+    border: 1px solid rgba(0,0,0,.08);
+    border-radius: 14px;
+    padding: 1rem;
+    background: #fff;
+    max-width: 520px;
+  }
+
+  a { text-decoration: none; }
+  a:hover { text-decoration: underline; }
+}

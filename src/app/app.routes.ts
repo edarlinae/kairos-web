@@ -1,57 +1,52 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from './pages/home/home.component';
 
 export const routes: Routes = [
-  { path: '', component: HomeComponent, title: 'Kairós · Inicio' },
+  { path: '', pathMatch: 'full', redirectTo: 'inicio' },
 
+  {
+    path: 'inicio',
+    loadComponent: () =>
+      import('./pages/home/home.component').then(m => m.HomeComponent),
+  },
   {
     path: 'servicios',
     loadComponent: () =>
       import('./pages/servicios/servicios.component').then(m => m.ServiciosComponent),
-    title: 'Servicios',
   },
   {
     path: 'agenda',
     loadComponent: () =>
       import('./pages/agenda/agenda.component').then(m => m.AgendaComponent),
-    title: 'Agenda y Reservas',
   },
+  // Deja estas rutas si ya existen; si no, puedes comentarlas sin problema.
   {
     path: 'comunidad',
     loadComponent: () =>
       import('./pages/comunidad/comunidad.component').then(m => m.ComunidadComponent),
-    title: 'Comunidad',
   },
   {
     path: 'equipo',
     loadComponent: () =>
       import('./pages/equipo/equipo.component').then(m => m.EquipoComponent),
-    title: 'Equipo',
   },
   {
     path: 'blog',
     loadComponent: () =>
       import('./pages/blog/blog.component').then(m => m.BlogComponent),
-    title: 'Blog',
   },
+
+  // ✅ Contacto (para el botón Reservar)
   {
     path: 'contacto',
     loadComponent: () =>
       import('./pages/contacto/contacto.component').then(m => m.ContactoComponent),
-    title: 'Contacto',
-  },
-  {
-    path: 'legal/aviso',
-    loadComponent: () =>
-      import('./pages/legal/aviso.component').then(m => m.AvisoComponent),
-    title: 'Aviso legal',
-  },
-  {
-    path: 'legal/privacidad',
-    loadComponent: () =>
-      import('./pages/legal/privacidad.component').then(m => m.PrivacidadComponent),
-    title: 'Privacidad',
   },
 
-  { path: '**', redirectTo: '' },
+  // {
+  //   path: 'legal',
+  //   loadComponent: () =>
+  //     import('./pages/legal/legal.component').then(m => m.LegalComponent),
+  // },
+
+  { path: '**', redirectTo: 'inicio' },
 ];

@@ -48,10 +48,10 @@
       </div>
 
       <div class="actions">
-        <a routerLink="/agenda" class="btn btn-primary btn-white-text">Ver agenda y reservar</a>
+        <a routerLink="/contacto" class="btn btn-primary btn-white-text">Reservar</a>
       </div>
 
-      <!-- ✅ Nota correcta (solo esto) -->
+      <!-- Nota correcta -->
       <small class="note">Talleres y charlas de bienestar.</small>
     </article>
 
@@ -103,19 +103,28 @@
   <section class="upcoming">
     <h3 class="font-cinzel">Próximos talleres</h3>
 
-    <div class="upcoming__grid">
+    <div class="upcoming__grid" *ngIf="upcoming.length; else noEvents">
       <article class="u-card" *ngFor="let t of upcoming">
         <h4 class="u-title">{{ t.title }}</h4>
         <div class="u-meta">
-          <span class="u-chip">{{ t.date }}</span>
+          <span class="u-chip">
+            {{ t.start | date:'EEEE d · HH:mm':'':'es' }}
+            <ng-container *ngIf="t.end">– {{ t.end | date:'HH:mm':'':'es' }}</ng-container>
+          </span>
           <span class="u-chip">{{ t.location }}</span>
         </div>
-        <div class="u-spots">{{ t.spots }}</div>
+        <div class="u-spots" *ngIf="t.spotsLeft !== undefined">
+          Quedan {{ t.spotsLeft }} plazas
+        </div>
         <div class="u-actions">
-          <a routerLink="/agenda" class="btn btn-primary btn-white-text">Reservar</a>
+          <a routerLink="/contacto" class="btn btn-primary btn-white-text">Reservar</a>
         </div>
       </article>
     </div>
+
+    <ng-template #noEvents>
+      <div class="card" style="text-align:center">Pronto anunciaremos nuevas fechas.</div>
+    </ng-template>
 
     <div class="u-more">
       <a routerLink="/agenda" class="btn btn-outline">Ver toda la agenda</a>
