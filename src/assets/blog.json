@@ -1,20 +1,18 @@
 [
   {
     "id": 1,
-    "title": "Cómo gestionar el estrés en el día a día",
-    "date": "2025-09-01",
-    "excerpt": "Pequeños hábitos que marcan la diferencia para recuperar la calma en medio de la rutina.",
-    "content": "El estrés forma parte de la vida moderna, pero podemos aprender a gestionarlo mejor. En este artículo compartimos técnicas sencillas como la respiración consciente, pausas activas y la importancia de un descanso adecuado.",
+    "title": "Estrés: cómo reconocerlo en tu vida diaria",
+    "date": "2025-09-21",
     "image": "assets/blog/estres.jpg",
-    "category": "Salud mental"
+    "excerpt": "El estrés es una respuesta natural, pero cuando se vuelve crónico puede afectar profundamente tu salud y bienestar. Aprende a identificar sus señales.",
+    "content": "<p>El estrés es una reacción normal de nuestro cuerpo ante las exigencias del entorno. En dosis pequeñas puede ayudarnos a concentrarnos y rendir mejor, pero cuando se mantiene de forma prolongada afecta tanto a nuestra mente como a nuestro cuerpo.</p>\n\n<h3>Señales físicas del estrés</h3>\n<ul>\n  <li>Tensión muscular constante, especialmente en cuello y espalda.</li>\n  <li>Cefaleas frecuentes o migrañas.</li>\n  <li>Trastornos del sueño: dificultad para conciliar o mantener el sueño.</li>\n  <li>Problemas digestivos (acidez, dolor abdominal, estreñimiento o diarrea).</li>\n</ul>\n\n<h3>Señales emocionales</h3>\n<ul>\n  <li>Irritabilidad o enfado con facilidad.</li>\n  <li>Sentimiento de ansiedad constante.</li>\n  <li>Dificultad para relajarse incluso en momentos de descanso.</li>\n  <li>Sensación de vacío o apatía.</li>\n</ul>\n\n<h3>Cómo empezar a manejarlo</h3>\n<p>Reconocer estas señales es el primer paso. Incorporar pequeños cambios puede marcar la diferencia:</p>\n<ul>\n  <li>Practicar ejercicios de respiración consciente unos minutos al día.</li>\n  <li>Incorporar pausas activas en la jornada laboral.</li>\n  <li>Realizar ejercicio físico moderado al menos tres veces por semana.</li>\n  <li>Cuidar la higiene del sueño: horarios regulares y desconexión digital.</li>\n</ul>\n<p>Si el estrés comienza a interferir de forma significativa en tu vida diaria, es importante buscar apoyo profesional. No tienes que enfrentarlo solo.</p>"
   },
   {
     "id": 2,
-    "title": "Taller de relajación y mindfulness en Kairos",
-    "date": "2025-09-10",
-    "excerpt": "Nuestro último taller dejó grandes experiencias. Aquí te contamos cómo fue y compartimos algunas fotos.",
-    "content": "El pasado sábado celebramos un taller de mindfulness donde exploramos la meditación guiada, la relajación corporal y ejercicios prácticos. Fue una jornada de conexión y bienestar que queremos repetir muy pronto.",
+    "title": "Así es nuestro Taller de Estrés: un espacio para recuperar el equilibrio",
+    "date": "2025-09-18",
     "image": "assets/blog/taller.jpg",
-    "category": "Talleres"
+    "excerpt": "Te presentamos cómo funciona nuestro Taller de Estrés: un encuentro práctico, grupal y cercano para aprender técnicas que realmente ayudan.",
+    "content": "<p>Nuestro <strong>Taller de Estrés</strong> está diseñado para que vivas una experiencia práctica y enriquecedora en un entorno cercano. El objetivo es que aprendas herramientas que puedas aplicar en tu día a día para mejorar tu bienestar.</p>\n\n<h3>¿Qué trabajamos en el taller?</h3>\n<ul>\n  <li><strong>Respiración consciente:</strong> ejercicios guiados para calmar la mente y oxigenar el cuerpo.</li>\n  <li><strong>Técnicas de relajación:</strong> manejo del estrés a través de dinámicas guiadas y sencillas.</li>\n  <li><strong>Herramientas prácticas:</strong> recursos grupales e individuales para la gestión emocional.</li>\n  <li><strong>Gestión del estrés corporal:</strong> actividades de conexión con el cuerpo y espacio de reflexión.</li>\n</ul>\n\n<h3>Una experiencia compartida</h3>\n<p>El taller no solo se basa en técnicas, sino también en la fuerza del grupo. Compartir experiencias con otras personas permite normalizar lo que sentimos y aprender de los demás.</p>\n\n<h3>¿Qué te llevarás del taller?</h3>\n<ul>\n  <li>Un plan claro para manejar tu estrés.</li>\n  <li>Técnicas que podrás aplicar en cualquier momento.</li>\n  <li>Apoyo de profesionales y del grupo.</li>\n  <li>Un espacio de autocuidado y reflexión.</li>\n</ul>\n\n<p>Recuerda: el cambio comienza con un primer paso. Te esperamos en el próximo encuentro para que vivas esta experiencia y empieces a construir hábitos más saludables.</p>"
   }
 ]

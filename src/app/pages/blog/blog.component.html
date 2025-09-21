@@ -1,1 +1,33 @@
-<p>blog works!</p>
+<section class="blog container">
+  <h2 class="font-cinzel">Últimas publicaciones</h2>
+
+  <div class="articles">
+    <article *ngFor="let post of posts">
+      <img [src]="post.image" [alt]="post.title" />
+      <h3>{{ post.title }}</h3>
+      <p class="date">{{ post.date | date: 'longDate' }}</p>
+      <p>{{ post.excerpt }}</p>
+      <button class="btn btn-primary btn-white-text" (click)="openPost(post)">
+        Leer más
+      </button>
+    </article>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal" *ngIf="selectedPost">
+    <div class="modal__content">
+      <button class="modal__close" (click)="closePost()" aria-label="Cerrar">
+        &times;
+      </button>
+
+      <img
+        class="modal__image"
+        [src]="selectedPost!.image"
+        [alt]="selectedPost!.title"
+      />
+      <h2 class="font-cinzel">{{ selectedPost!.title }}</h2>
+      <p class="date">{{ selectedPost!.date | date: 'longDate' }}</p>
+      <div class="content" [innerHTML]="selectedPost!.content"></div>
+    </div>
+  </div>
+</section>
