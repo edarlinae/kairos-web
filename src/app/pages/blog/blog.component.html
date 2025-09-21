@@ -1,42 +1,20 @@
-<section class="blog container">
-  <h2 class="font-cinzel">Últimas publicaciones</h2>
+<section class="blog">
+  <h1>Últimas publicaciones</h1>
 
   <div class="articles">
-    <article *ngFor="let post of posts">
-      <img [src]="post.image" [alt]="post.title" />
-      <h3>{{ post.title }}</h3>
-      <p class="date">{{ post.date | date: 'longDate' }}</p>
-      <p>{{ post.excerpt }}</p>
-      <button class="btn btn-primary btn-white-text" (click)="openPost(post)">
-        Leer más
-      </button>
-    </article>
-  </div>
+    <article *ngFor="let art of articles" class="article-card">
+      <img [src]="art.image" [alt]="art.title" />
+      <div class="content">
+        <h2>{{ art.title }}</h2>
+        <p class="date">{{ art.date | date:'longDate' }}</p>
+        <p>{{ art.excerpt }}</p>
 
-  <!-- Modal artículo -->
-  <div class="modal" *ngIf="selectedPost">
-    <div class="modal__content">
-      <button class="modal__close" (click)="closePost()" aria-label="Cerrar">
-        &times;
-      </button>
-
-      <img
-        class="modal__image"
-        [src]="selectedPost!.image"
-        [alt]="selectedPost!.title"
-      />
-      <h2 class="font-cinzel">{{ selectedPost!.title }}</h2>
-      <p class="date">{{ selectedPost!.date | date: 'longDate' }}</p>
-
-      <div class="content" [innerHTML]="selectedPost!.content"></div>
-
-      <div class="share">
-        <span>Compartir:</span>
-        <button class="chip" (click)="share('whatsapp')">WhatsApp</button>
-        <button class="chip" (click)="share('x')">X</button>
-        <button class="chip" (click)="share('facebook')">Facebook</button>
-        <button class="chip" (click)="share('email')">Email</button>
+        <div class="actions">
+          <button class="btn btn--primary" (click)="openArticle(art.id)">
+            Leer más
+          </button>
+        </div>
       </div>
-    </div>
+    </article>
   </div>
 </section>

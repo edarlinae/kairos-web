@@ -1,0 +1,16 @@
+<section class="blog-detail" *ngIf="article as a">
+  <header class="topbar">
+    <a routerLink="/blog" class="btn btn--ghost" aria-label="Volver al blog">← Volver</a>
+  </header>
+
+  <h1>{{ a.title }}</h1>
+  <p class="date">{{ a.date | date:'longDate' }}</p>
+  <img [src]="a.image" [alt]="a.title" />
+
+  <div class="content" [innerHTML]="a.content"></div>
+
+  <div class="footer-ctas">
+    <a routerLink="/agenda" class="btn btn--primary">Ver agenda de talleres</a>
+    <a routerLink="/blog" class="btn btn--ghost">Volver al blog</a>
+  </div>
+</section>
