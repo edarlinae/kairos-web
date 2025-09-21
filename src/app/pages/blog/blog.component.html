@@ -13,7 +13,7 @@
     </article>
   </div>
 
-  <!-- Modal -->
+  <!-- Modal artículo -->
   <div class="modal" *ngIf="selectedPost">
     <div class="modal__content">
       <button class="modal__close" (click)="closePost()" aria-label="Cerrar">
@@ -27,7 +27,16 @@
       />
       <h2 class="font-cinzel">{{ selectedPost!.title }}</h2>
       <p class="date">{{ selectedPost!.date | date: 'longDate' }}</p>
+
       <div class="content" [innerHTML]="selectedPost!.content"></div>
+
+      <div class="share">
+        <span>Compartir:</span>
+        <button class="chip" (click)="share('whatsapp')">WhatsApp</button>
+        <button class="chip" (click)="share('x')">X</button>
+        <button class="chip" (click)="share('facebook')">Facebook</button>
+        <button class="chip" (click)="share('email')">Email</button>
+      </div>
     </div>
   </div>
 </section>
