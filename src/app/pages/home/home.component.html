@@ -15,10 +15,23 @@
       </p>
 
       <!-- CTAs (sin funcionalidad por ahora) -->
+      <!-- CTAs -->
       <div class="hero__cta">
-        <button class="btn btn-primary" type="button">Reservar Taller</button>
-        <button class="btn btn-outline" type="button">Unirme a la Comunidad</button>
+        <button class="btn btn-primary"
+                type="button"
+                [routerLink]="'/contacto'"
+                aria-label="Reservar un taller">
+          Reservar Taller
+        </button>
+
+        <button class="btn btn-outline"
+                type="button"
+                [routerLink]="'/comunidad'"
+                aria-label="Unirme a la comunidad">
+          Unirme a la Comunidad
+        </button>
       </div>
+
 
       <!-- Nota legal corta -->
       <p class="hero__note">Talleres y charlas de bienestar.</p>

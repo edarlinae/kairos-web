@@ -1,32 +1,13 @@
+
 [
   {
-    "id": "t1",
+    "id": "2025-09-28-01",
     "title": "Respira y suelta: manejo del estrés",
-    "start": "2025-10-12T10:00:00",
-    "end": "2025-10-12T12:30:00",
-    "location": "Sala Kairós (Centro)",
-    "capacity": 12,
-    "spotsLeft": 4,
-    "type": "taller"
-  },
-  {
-    "id": "t2",
-    "title": "Meditación guiada y calma mental",
-    "start": "2025-10-16T19:00:00",
-    "end": "2025-10-16T20:15:00",
+    "start": "2025-09-28T11:00:00",
+    "end": "2025-09-28T12:30:00",
     "location": "Sala Kairós (Centro)",
     "capacity": 12,
     "spotsLeft": 7,
-    "type": "meditacion"
-  },
-  {
-    "id": "t3",
-    "title": "Creatividad y autoestima en acción",
-    "start": "2025-10-26T11:00:00",
-    "end": "2025-10-26T13:00:00",
-    "location": "Sala Kairós (Centro)",
-    "capacity": 12,
-    "spotsLeft": 6,
-    "type": "creatividad"
+    "type": "taller"
   }
 ]

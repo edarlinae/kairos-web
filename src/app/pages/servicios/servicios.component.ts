@@ -1,35 +1,37 @@
 import { Component, OnInit } from '@angular/core';
+import { CommonModule, DatePipe, NgFor, NgIf } from '@angular/common';
 import { RouterLink } from '@angular/router';
-import { NgFor, NgIf, DatePipe } from '@angular/common';
-import { AgendaService, AgendaEvent } from '../../services/agenda.service';
+import { AgendaService } from '../../services/agenda.service';
+
+export interface AgendaEvent {
+  id: string;
+  title: string;
+  start: string;
+  end?: string;
+  location?: string;
+  capacity?: number;
+  spotsLeft?: number;
+  type?: string;
+}
 
 @Component({
   selector: 'app-servicios',
   standalone: true,
-  imports: [RouterLink, NgFor, NgIf, DatePipe],
-  styleUrls: ['./servicios.component.scss'],
+  imports: [CommonModule, NgFor, NgIf, DatePipe, RouterLink],
   templateUrl: './servicios.component.html',
+  styleUrls: ['./servicios.component.scss']
 })
 export class ServiciosComponent implements OnInit {
-  faqs = [
-    { q: '¿Necesito experiencia previa en yoga, meditación o dinámicas de grupo?', a: 'No, todo está pensado para principiantes y adaptamos cada actividad al ritmo de cada persona.' },
-    { q: '¿Qué diferencia hay entre los talleres presenciales y la comunidad digital?', a: 'Los talleres son experiencias prácticas en grupo reducido, mientras que la comunidad digital es un espacio de apoyo continuo con recursos, retos y acompañamiento online.' },
-    { q: '¿Puedo asistir solo a un taller puntual sin unirme a la comunidad?', a: 'Sí, los talleres se reservan de forma independiente. La comunidad es opcional y complementa el trabajo presencial.' },
-    { q: '¿Cómo reservo plaza?', a: 'Desde la sección de Agenda puedes ver fechas, plazas disponibles y confirmar tu asistencia de forma sencilla.' },
-    { q: '¿Qué necesito llevar a los talleres?', a: 'Nada especial: ropa cómoda. El material lo ponemos nosotros.' },
-    { q: '¿Qué pasa si no puedo asistir después de reservar?', a: 'Puedes cancelar avisando con 48h de antelación y te guardamos la plaza para otra fecha.' }
-  ];
-
-  openIndex: number | null = null;
-  toggleFaq(i: number) { this.openIndex = this.openIndex === i ? null : i; }
-
   upcoming: AgendaEvent[] = [];
+  openIndex = -1; // acordeón FAQ
 
   constructor(private agenda: AgendaService) {}
 
   ngOnInit(): void {
-    this.agenda.getUpcoming(3).subscribe((evts: AgendaEvent[]) => {
-      this.upcoming = evts;
-    });
+    this.agenda.getUpcoming(3).subscribe(evts => (this.upcoming = evts));
+  }
+
+  toggleFaq(i: number) {
+    this.openIndex = this.openIndex === i ? -1 : i;
   }
 }

@@ -1,92 +1,83 @@
 import { Component, OnInit } from '@angular/core';
-import { NgFor, NgIf, DatePipe } from '@angular/common';
+import { CommonModule, DatePipe, NgFor, NgIf } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { AgendaService, AgendaEvent } from '../../services/agenda.service';
+import { RouterLink } from '@angular/router';
+import { AgendaService } from '../../services/agenda.service';
 
-type Periodo = 'mes-actual' | 'mes-siguiente' | 'todos';
-type Tipo = 'todos' | 'taller' | 'charla' | 'meditacion' | 'creatividad';
+export interface AgendaEvent {
+  id: string;
+  title: string;
+  start: string;   // ISO
+  end?: string;    // ISO
+  location?: string;
+  capacity?: number;
+  spotsLeft?: number;
+  type?: string;   // 'taller' | 'meditacion' | 'charla' | 'creatividad'...
+}
 
 @Component({
   selector: 'app-agenda',
   standalone: true,
-  imports: [NgFor, NgIf, DatePipe, FormsModule],
-  styleUrls: ['./agenda.component.scss'],
+  imports: [CommonModule, NgFor, NgIf, FormsModule, DatePipe, RouterLink],
   templateUrl: './agenda.component.html',
+  styleUrls: ['./agenda.component.scss']
 })
 export class AgendaComponent implements OnInit {
-  /** Datos */
   events: AgendaEvent[] = [];
   filtered: AgendaEvent[] = [];
 
-  /** Estado UI filtros */
+  // filtros UI
+  periodo: 'todos' | 'mes-actual' | 'mes-siguiente' = 'todos';
+  tipo: string = 'todos';
   query = '';
-  periodo: Periodo = 'mes-actual';
-  tipo: Tipo = 'todos';
 
   constructor(private agenda: AgendaService) {}
 
   ngOnInit(): void {
-    this.agenda.getAll().subscribe((evts: AgendaEvent[]) => {
+    this.agenda.getAll().subscribe(evts => {
       this.events = evts;
-      this.aplicarFiltros();
+      this.applyFilters();
     });
   }
 
-  // === Filtros ===
-  setPeriodo(p: Periodo) {
-    this.periodo = p;
-    this.aplicarFiltros();
-  }
-  setTipo(t: Tipo) {
-    this.tipo = t;
-    this.aplicarFiltros();
-  }
-  onBuscar() {
-    this.aplicarFiltros();
-  }
+  setPeriodo(p: 'todos' | 'mes-actual' | 'mes-siguiente') { this.periodo = p; this.applyFilters(); }
+  setTipo(t: string) { this.tipo = t; this.applyFilters(); }
+  onBuscar() { this.applyFilters(); }
 
-  private aplicarFiltros() {
+  private applyFilters() {
+    let list = [...this.events];
+
+    // Periodo
     const now = new Date();
+    const m = now.getMonth();
+    const y = now.getFullYear();
+    const next = new Date(y, m + 1, 1);
+    const nm = next.getMonth(), ny = next.getFullYear();
 
-    // Rango de fechas según periodo
-    let start: Date | null = null;
-    let end: Date | null = null;
-
-    if (this.periodo === 'mes-actual') {
-      start = new Date(now.getFullYear(), now.getMonth(), 1, 0, 0, 0);
-      end = new Date(now.getFullYear(), now.getMonth() + 1, 0, 23, 59, 59);
-    } else if (this.periodo === 'mes-siguiente') {
-      start = new Date(now.getFullYear(), now.getMonth() + 1, 1, 0, 0, 0);
-      end = new Date(now.getFullYear(), now.getMonth() + 2, 0, 23, 59, 59);
+    if (this.periodo !== 'todos') {
+      list = list.filter(e => {
+        const d = new Date(e.start);
+        if (this.periodo === 'mes-actual') return d.getMonth() === m && d.getFullYear() === y;
+        if (this.periodo === 'mes-siguiente') return d.getMonth() === nm && d.getFullYear() === ny;
+        return true;
+      });
     }
 
+    // Tipo
+    if (this.tipo !== 'todos') {
+      list = list.filter(e => (e.type || '').toLowerCase() === this.tipo.toLowerCase());
+    }
+
+    // Búsqueda
     const q = this.query.trim().toLowerCase();
+    if (q) {
+      list = list.filter(e =>
+        (e.title || '').toLowerCase().includes(q) ||
+        (e.location || '').toLowerCase().includes(q)
+      );
+    }
 
-    this.filtered = this.events
-      .filter(e => {
-        // Fecha
-        const s = new Date(e.start);
-        if (start && s < start) return false;
-        if (end && s > end) return false;
-
-        // Tipo
-        if (this.tipo !== 'todos') {
-          if ((e.type || '').toLowerCase() !== this.tipo) return false;
-        }
-
-        // Búsqueda
-        if (q) {
-          const texto = `${e.title} ${e.location ?? ''} ${e.type ?? ''}`.toLowerCase();
-          if (!texto.includes(q)) return false;
-        }
-
-        return true;
-      })
-      .sort((a, b) => +new Date(a.start) - +new Date(b.start));
-  }
-
-  // Helper para chips activos
-  isActive<T extends string>(current: T, value: T) {
-    return current === value;
+    // Orden
+    this.filtered = list.sort((a, b) => +new Date(a.start) - +new Date(b.start));
   }
 }

@@ -1,160 +1,163 @@
-<section class="container servicios">
-  <!-- Encabezado -->
-  <header class="head">
-    <h1 class="font-cinzel">Servicios</h1>
+<section class="servicios-hero">
+  <div class="wrap">
+    <h1 class="brand font-cinzel">Servicios Kairós</h1>
     <p class="lead">
-      Unimos experiencias <strong>presenciales</strong> con <strong>acompañamiento digital</strong> para sostener tu bienestar
-      con hábitos reales y apoyo continuo.
+      Cuidamos tu bienestar en cuerpo, mente y conexión social, tanto en persona como en línea.
     </p>
-  </header>
 
-  <!-- Cards principales -->
-  <div class="grid">
-    <!-- Presencial -->
-    <article class="card card--brand">
-      <div class="card__head">
-        <div class="pill">Presencial</div>
-        <h2 class="font-cinzel">Talleres y Charlas</h2>
-        <p class="sub">Grupos reducidos · enfoque práctico · ambiente cuidado</p>
-      </div>
+    <div class="cta-row">
+      <a routerLink="/agenda" class="btn btn-primary btn-white-text">Agenda</a>
+      <a routerLink="/contacto" class="btn btn-outline">Reservar</a>
+      <a routerLink="/comunidad" class="btn btn-ghost">Unirme a la Comunidad</a>
+    </div>
 
-      <ul class="list">
-        <li>
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 11l3 3L22 4l-2-2-8 8-3-3-9 9 2 2 8-8z" fill="currentColor"/></svg>
-          Manejo del estrés y respiración consciente
-        </li>
-        <li>
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 11l3 3L22 4l-2-2-8 8-3-3-9 9 2 2 8-8z" fill="currentColor"/></svg>
-          Yoga suave y meditación guiada
-        </li>
-        <li>
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 11l3 3L22 4l-2-2-8 8-3-3-9 9 2 2 8-8z" fill="currentColor"/></svg>
-          Masajes energéticos y relajación
-        </li>
-        <li>
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 11l3 3L22 4l-2-2-8 8-3-3-9 9 2 2 8-8z" fill="currentColor"/></svg>
-          Creatividad, autoestima y equilibrio emocional
-        </li>
-        <li>
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 11l3 3L22 4l-2-2-8 8-3-3-9 9 2 2 8-8z" fill="currentColor"/></svg>
-          Charlas prácticas de bienestar
-        </li>
-      </ul>
-
-      <div class="meta">
-        <span class="badge">Grupos de 8–12 participantes</span>
-        <span class="badge">Material incluido</span>
-        <span class="badge">Espacio accesible</span>
-      </div>
-
-      <div class="actions">
-        <a routerLink="/contacto" class="btn btn-primary btn-white-text">Reservar</a>
-      </div>
-
-      <!-- Nota correcta -->
-      <small class="note">Talleres y charlas de bienestar.</small>
-    </article>
-
-    <!-- Digital -->
-    <article class="card">
-      <div class="card__head">
-        <div class="pill pill--soft">Digital</div>
-        <h2 class="font-cinzel">Comunidad y Recursos</h2>
-        <p class="sub">Sigue cuidándote en casa · ritmo propio · apoyo grupal</p>
-      </div>
-
-      <ul class="list">
-        <li>
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 11l3 3L22 4l-2-2-8 8-3-3-9 9 2 2 8-8z" fill="currentColor"/></svg>
-          Meditaciones guiadas (audio y vídeo)
-        </li>
-        <li>
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 11l3 3L22 4l-2-2-8 8-3-3-9 9 2 2 8-8z" fill="currentColor"/></svg>
-          Retos semanales, hábitos y recordatorios
-        </li>
-        <li>
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 11l3 3L22 4l-2-2-8 8-3-3-9 9 2 2 8-8z" fill="currentColor"/></svg>
-          Recursos descargables y bitácora personal
-        </li>
-        <li>
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 11l3 3L22 4l-2-2-8 8-3-3-9 9 2 2 8-8z" fill="currentColor"/></svg>
-          Foro moderado y acompañamiento amable
-        </li>
-        <li>
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 11l3 3L22 4l-2-2-8 8-3-3-9 9 2 2 8-8z" fill="currentColor"/></svg>
-          Directos mensuales (preguntas y práctica)
-        </li>
-      </ul>
-
-      <div class="meta">
-        <span class="badge">Acceso 24/7</span>
-        <span class="badge">Desde 10–15 €/mes</span>
-        <span class="badge">App y foro incluidos</span>
-      </div>
-
-      <div class="actions">
-        <a routerLink="/comunidad" class="btn btn-outline">Unirme a la comunidad</a>
-      </div>
-      <small class="note">Cancela cuando quieras.</small>
-    </article>
+    <small class="note">Talleres y charlas de bienestar. No psicoterapia clínica.</small>
   </div>
+</section>
 
-  <!-- Próximos talleres -->
-  <section class="upcoming">
-    <h3 class="font-cinzel">Próximos talleres</h3>
+<!-- Qué ofrecemos -->
+<section class="ofrecemos">
+  <div class="wrap">
+    <h2 class="font-cinzel">¿Qué ofrecemos?</h2>
 
-    <div class="upcoming__grid" *ngIf="upcoming.length; else noEvents">
-      <article class="u-card" *ngFor="let t of upcoming">
-        <h4 class="u-title">{{ t.title }}</h4>
-        <div class="u-meta">
-          <span class="u-chip">
-            {{ t.start | date:'EEEE d · HH:mm':'':'es' }}
-            <ng-container *ngIf="t.end">– {{ t.end | date:'HH:mm':'':'es' }}</ng-container>
-          </span>
-          <span class="u-chip">{{ t.location }}</span>
+    <div class="features">
+      <article class="feature">
+        <h3>Talleres presenciales</h3>
+        <p>Dinámicas prácticas de gestión del estrés, meditación guiada, movimiento suave y creatividad.</p>
+      </article>
+
+      <article class="feature">
+        <h3>Comunidad online</h3>
+        <p>Programas digitales con meditaciones, retos semanales, recordatorios y acompañamiento del equipo.</p>
+      </article>
+
+      <article class="feature">
+        <h3>Recursos y seguimiento</h3>
+        <p>Bitácora personal, métricas sencillas y recomendaciones para sostener hábitos saludables.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Planes / Acceso -->
+<section class="planes">
+  <div class="wrap">
+    <h2 class="font-cinzel">Elige tu acceso</h2>
+
+    <div class="cards">
+      <article class="card">
+        <div class="pill">Aplicación Online</div>
+        <h3>Acceso 24/7</h3>
+        <p class="muted">Desde 10–15&nbsp;€/mes</p>
+        <ul class="list">
+          <li>Meditaciones y respiraciones guiadas</li>
+          <li>Retos semanales con recordatorios</li>
+          <li>Bitácora personal y métricas sencillas</li>
+          <li>Foro moderado y apoyo del equipo</li>
+        </ul>
+        <a routerLink="/comunidad" class="btn btn-primary btn-white-text">Unirme a la Comunidad</a>
+        <small class="subnote">Cancela cuando quieras.</small>
+      </article>
+
+      <article class="card">
+        <div class="pill">Presencial</div>
+        <h3>Talleres puntuales</h3>
+        <p class="muted">Reserva por sesión</p>
+        <ul class="list">
+          <li>Gestión del estrés y relajación</li>
+          <li>Meditación guiada y movimiento suave</li>
+          <li>Herramientas prácticas para el día a día</li>
+        </ul>
+        <a routerLink="/agenda" class="btn btn-outline">Ver próximos talleres</a>
+      </article>
+
+      <article class="card">
+        <div class="pill">Mixto</div>
+        <h3>Pack mensual</h3>
+        <p class="muted">App + 1 taller / mes</p>
+        <ul class="list">
+          <li>Acceso completo a la App</li>
+          <li>Un taller grupal mensual</li>
+          <li>Revisión breve de objetivos</li>
+        </ul>
+        <a routerLink="/contacto" class="btn btn-ghost">Solicitar información</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Próximos talleres (datos desde agenda.json) -->
+<section class="proximos">
+  <div class="wrap">
+    <h2 class="font-cinzel">Próximos talleres</h2>
+
+    <div class="grid" *ngIf="upcoming?.length; else noData">
+      <article class="wk-card" *ngFor="let e of upcoming">
+        <div class="date">
+          <div class="day">{{ e.start | date:'d':'' : 'es' }}</div>
+          <div class="mon">{{ e.start | date:'MMM':'' : 'es' }}</div>
         </div>
-        <div class="u-spots" *ngIf="t.spotsLeft !== undefined">
-          Quedan {{ t.spotsLeft }} plazas
-        </div>
-        <div class="u-actions">
-          <a routerLink="/contacto" class="btn btn-primary btn-white-text">Reservar</a>
+
+        <div class="info">
+          <h3 class="title">{{ e.title }}</h3>
+          <div class="meta">
+            <span class="chip">
+              {{ e.start | date:'EEE d MMM · HH:mm':'' : 'es' }}
+              <ng-container *ngIf="e.end">– {{ e.end | date:'HH:mm':'' : 'es' }}</ng-container>
+            </span>
+            <span class="chip" *ngIf="e.location">{{ e.location }}</span>
+          </div>
+          <div class="spots" *ngIf="e.spotsLeft !== undefined">Quedan {{ e.spotsLeft }} plazas</div>
+          <div class="actions">
+            <a routerLink="/contacto" class="btn btn-primary btn-white-text">Reservar</a>
+          </div>
         </div>
       </article>
     </div>
 
-    <ng-template #noEvents>
-      <div class="card" style="text-align:center">Pronto anunciaremos nuevas fechas.</div>
+    <ng-template #noData>
+      <p class="muted">Muy pronto añadiremos nuevas fechas. Puedes consultar la <a routerLink="/agenda">agenda completa</a>.</p>
     </ng-template>
 
-    <div class="u-more">
+    <div class="cta-agenda">
       <a routerLink="/agenda" class="btn btn-outline">Ver toda la agenda</a>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- FAQ -->
-  <section class="faq">
-    <h3 class="font-cinzel">Preguntas frecuentes</h3>
+<!-- Preguntas frecuentes -->
+<section class="faq">
+  <div class="wrap">
+    <h2 class="font-cinzel">Preguntas frecuentes</h2>
 
-    <div class="faq__list">
-      <div class="faq__item" *ngFor="let item of faqs; let i = index">
-        <button
-          class="faq__q"
-          type="button"
-          (click)="toggleFaq(i)"
-          [attr.aria-expanded]="openIndex === i"
-          [attr.aria-controls]="'faq-a-' + i">
-          <span>{{ item.q }}</span>
-          <svg class="chev" viewBox="0 0 24 24" aria-hidden="true">
-            <path fill="currentColor" d="M7 10l5 5 5-5z"/>
-          </svg>
-        </button>
-        <div
-          class="faq__a"
-          [id]="'faq-a-' + i"
-          [class.is-open]="openIndex === i">
-          <p>{{ item.a }}</p>
+    <div class="faq-list">
+      <article class="faq-item" [class.open]="openIndex===0">
+        <button class="faq-q" (click)="toggleFaq(0)">¿Qué incluye la Comunidad Online?</button>
+        <div class="faq-a">
+          <p>Acceso a meditaciones y respiraciones guiadas, retos semanales, recordatorios, bitácora personal, foro moderado y acompañamiento del equipo.</p>
         </div>
-      </div>
+      </article>
+
+      <article class="faq-item" [class.open]="openIndex===1">
+        <button class="faq-q" (click)="toggleFaq(1)">¿Puedo asistir solo a un taller puntual sin unirme a la comunidad?</button>
+        <div class="faq-a">
+          <p>Sí, los talleres pueden reservarse de forma independiente desde la sección <a routerLink="/agenda">Agenda</a>.</p>
+        </div>
+      </article>
+
+      <article class="faq-item" [class.open]="openIndex===2">
+        <button class="faq-q" (click)="toggleFaq(2)">¿Cómo reservo plaza?</button>
+        <div class="faq-a">
+          <p>Desde la <a routerLink="/agenda">Agenda</a> puedes ver fechas, plazas disponibles y lugares, y hacer tu reserva. Si tienes dudas, escríbenos desde <a routerLink="/contacto">Contacto</a>.</p>
+        </div>
+      </article>
+
+      <article class="faq-item" [class.open]="openIndex===3">
+        <button class="faq-q" (click)="toggleFaq(3)">¿Qué necesito llevar a los talleres?</button>
+        <div class="faq-a">
+          <p>Nada especial: ropa cómoda. El material lo ponemos nosotros. Si es actividad en suelo, disponemos de esterillas y mantas.</p>
+        </div>
+      </article>
     </div>
-  </section>
+  </div>
 </section>
