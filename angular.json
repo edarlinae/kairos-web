@@ -28,13 +28,17 @@
             ],
             "scripts": [],
             "optimization": {
-              "fonts": {
-                "inline": false
-              }
+              "fonts": { "inline": false }
             }
           },
           "configurations": {
             "production": {
+              "outputHashing": "all",
+              "optimization": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
               "budgets": [
                 {
                   "type": "initial",
@@ -42,12 +46,6 @@
                   "maximumError": "1mb"
                 }
               ],
-              "outputHashing": "all",
-              "optimization": true,
-              "namedChunks": false,
-              "extractLicenses": true,
-              "vendorChunk": false,
-              "buildOptimizer": true,
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
@@ -56,7 +54,6 @@
               ]
             },
             "development": {
-              "buildOptimizer": false,
               "optimization": false,
               "vendorChunk": true,
               "extractLicenses": false,
@@ -68,12 +65,15 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "buildTarget": "kairos-web:build"
+          },
           "configurations": {
-            "production": {
-              "browserTarget": "kairos-web:build:production"
-            },
             "development": {
-              "browserTarget": "kairos-web:build:development"
+              "buildTarget": "kairos-web:build:development"
+            },
+            "production": {
+              "buildTarget": "kairos-web:build:production"
             }
           },
           "defaultConfiguration": "development"
@@ -88,7 +88,10 @@
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
             "main": "src/test.ts",
-            "polyfills": ["zone.js", "zone.js/testing"],
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
             "assets": [
