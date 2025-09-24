@@ -5,7 +5,8 @@
       <span class="brand__name">KAIRÓS</span>
     </a>
 
-    <nav class="nav" aria-label="Principal">
+    <!-- NAV ESCRITORIO -->
+    <nav class="nav nav--desktop" aria-label="Principal">
       <a routerLink="/inicio" routerLinkActive="is-active">Inicio</a>
       <a routerLink="/servicios" routerLinkActive="is-active">Servicios</a>
       <a routerLink="/agenda" routerLinkActive="is-active">Agenda</a>
@@ -15,19 +16,29 @@
       <a routerLink="/contacto" routerLinkActive="is-active">Contacto</a>
     </nav>
 
+    <!-- ACCIONES ESCRITORIO -->
     <div class="actions actions--desktop">
       <a routerLink="/contacto" class="btn btn-primary">Reservar</a>
       <a routerLink="/comunidad" class="btn btn-outline">Unirme</a>
     </div>
 
-    <!-- Botón hamburguesa -->
-    <button class="hamburger" type="button" (click)="toggleMenu()" aria-label="Abrir menú">
-      <span></span><span></span><span></span>
+    <!-- BURGER MÓVIL -->
+    <button
+      class="burger"
+      type="button"
+      aria-label="Abrir menú"
+      (click)="toggleMenu()"
+      [class.is-open]="menuOpen">
+      <span class="line"></span>
+      <span class="line"></span>
+      <span class="line"></span>
     </button>
   </div>
 
-  <!-- Panel móvil -->
-  <div class="overlay" *ngIf="menuOpen" (click)="closeMenu()" aria-hidden="true"></div>
+  <!-- OVERLAY MÓVIL -->
+  <div class="overlay" *ngIf="menuOpen" (click)="closeMenu()"></div>
+
+  <!-- PANEL MÓVIL -->
   <aside class="panel" [class.is-open]="menuOpen" aria-label="Menú móvil">
     <nav class="panel__nav">
       <a routerLink="/inicio" (click)="closeMenu()">Inicio</a>
