@@ -20,7 +20,8 @@
             "tsConfig": "tsconfig.app.json",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/_redirects"
             ],
             "styles": [
               "src/styles.scss"
@@ -43,7 +44,6 @@
               ],
               "outputHashing": "all",
               "optimization": true,
-              "extractCss": true,
               "namedChunks": false,
               "extractLicenses": true,
               "vendorChunk": false,
@@ -104,7 +104,6 @@
       }
     }
   },
-  "defaultProject": "kairos-web",
   "cli": {
     "analytics": false
   }
