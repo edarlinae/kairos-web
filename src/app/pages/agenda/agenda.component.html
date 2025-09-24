@@ -5,20 +5,20 @@
     <div>
       <div class="label">Periodo</div>
       <div class="chips">
-        <button class="chip" [class.active]="periodo==='mes-actual'" (click)="setPeriodo('mes-actual')">Este mes</button>
-        <button class="chip" [class.active]="periodo==='mes-siguiente'" (click)="setPeriodo('mes-siguiente')">Próximo mes</button>
-        <button class="chip" [class.active]="periodo==='todos'" (click)="setPeriodo('todos')">Todos</button>
+        <button class="chip" (click)="setPeriodo('mes-actual')">Este mes</button>
+        <button class="chip" (click)="setPeriodo('mes-siguiente')">Próximo mes</button>
+        <button class="chip" (click)="setPeriodo('todos')">Todos</button>
       </div>
     </div>
 
     <div>
       <div class="label">Tipo</div>
       <div class="chips">
-        <button class="chip" [class.active]="tipo==='todos'" (click)="setTipo('todos')">Todos</button>
-        <button class="chip" [class.active]="tipo==='taller'" (click)="setTipo('taller')">Taller</button>
-        <button class="chip" [class.active]="tipo==='meditacion'" (click)="setTipo('meditacion')">Meditación</button>
-        <button class="chip" [class.active]="tipo==='charla'" (click)="setTipo('charla')">Charla</button>
-        <button class="chip" [class.active]="tipo==='creatividad'" (click)="setTipo('creatividad')">Creatividad</button>
+        <button class="chip" (click)="setTipo('todos')">Todos</button>
+        <button class="chip" (click)="setTipo('taller')">Taller</button>
+        <button class="chip" (click)="setTipo('meditacion')">Meditación</button>
+        <button class="chip" (click)="setTipo('charla')">Charla</button>
+        <button class="chip" (click)="setTipo('creatividad')">Creatividad</button>
       </div>
     </div>
 
@@ -28,32 +28,41 @@
     </div>
   </div>
 
-  <div class="grid">
-    <article class="card" *ngFor="let e of filtered">
-      <div class="card__date">
-        <div class="day">{{ e.start | date : 'd' : '' : 'es' }}</div>
-        <div class="month">{{ e.start | date : 'MMM' : '' : 'es' }}</div>
+  <ng-container *ngIf="vm$ | async as vm">
+    <ng-container *ngIf="vm.list?.length; else vacioAgenda">
+      <div class="grid">
+        <ng-container *ngFor="let e of vm.list; trackBy: trackById">
+          <article class="card">
+            <div class="card__date">
+              <div class="day">{{ e.startDay }}</div>
+              <div class="month">{{ e.startMon }}</div>
+            </div>
+
+            <div class="card__content">
+              <h3 class="title">{{ e.title }}</h3>
+
+              <div class="meta">
+                <span class="chip">{{ e.dateLine }}</span>
+                <span class="chip" *ngIf="e.location">{{ e.location }}</span>
+              </div>
+
+              <div class="spots" *ngIf="e.spotsLeft !== undefined">
+                Quedan {{ e.spotsLeft }} plazas
+              </div>
+
+              <div class="actions">
+                <a routerLink="/contacto" class="btn btn-primary btn-white-text">Reservar</a>
+              </div>
+            </div>
+          </article>
+        </ng-container>
       </div>
+    </ng-container>
+  </ng-container>
 
-      <div class="card__content">
-        <h3 class="title">{{ e.title }}</h3>
-
-        <div class="meta">
-          <span class="chip">
-            {{ e.start | date:'EEE d MMM · HH:mm':'' : 'es' }}
-            <ng-container *ngIf="e.end">– {{ e.end | date:'HH:mm':'' : 'es' }}</ng-container>
-          </span>
-          <span class="chip" *ngIf="e.location">{{ e.location }}</span>
-        </div>
-
-        <div class="spots" *ngIf="e.spotsLeft !== undefined">
-          Quedan {{ e.spotsLeft }} plazas
-        </div>
-
-        <div class="actions">
-          <a routerLink="/contacto" class="btn btn-primary btn-white-text">Reservar</a>
-        </div>
-      </div>
-    </article>
-  </div>
+  <ng-template #vacioAgenda>
+    <div class="grid">
+      <p class="muted">Muy pronto añadiremos nuevas fechas.</p>
+    </div>
+  </ng-template>
 </section>

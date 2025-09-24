@@ -86,34 +86,37 @@
   </div>
 </section>
 
-<!-- Próximos talleres (datos desde agenda.json) -->
+<!-- Próximos talleres -->
 <section class="proximos">
   <div class="wrap">
     <h2 class="font-cinzel">Próximos talleres</h2>
 
-    <div class="grid" *ngIf="upcoming?.length; else noData">
-      <article class="wk-card" *ngFor="let e of upcoming">
-        <div class="date">
-          <div class="day">{{ e.start | date:'d':'' : 'es' }}</div>
-          <div class="mon">{{ e.start | date:'MMM':'' : 'es' }}</div>
-        </div>
+    <!-- Usa VM + async para pintar todo de una vez -->
+    <ng-container *ngIf="upcoming$ | async as upcoming">
+      <div class="grid" *ngIf="upcoming?.length; else noData">
+        <ng-container *ngFor="let e of upcoming; trackBy: trackById">
+          <article class="wk-card">
+            <div class="date">
+              <!-- VM SIN PIPES: evita render por fases -->
+              <div class="day">{{ e.startDay }}</div>
+              <div class="mon">{{ e.startMon }}</div>
+            </div>
 
-        <div class="info">
-          <h3 class="title">{{ e.title }}</h3>
-          <div class="meta">
-            <span class="chip">
-              {{ e.start | date:'EEE d MMM · HH:mm':'' : 'es' }}
-              <ng-container *ngIf="e.end">– {{ e.end | date:'HH:mm':'' : 'es' }}</ng-container>
-            </span>
-            <span class="chip" *ngIf="e.location">{{ e.location }}</span>
-          </div>
-          <div class="spots" *ngIf="e.spotsLeft !== undefined">Quedan {{ e.spotsLeft }} plazas</div>
-          <div class="actions">
-            <a routerLink="/contacto" class="btn btn-primary btn-white-text">Reservar</a>
-          </div>
-        </div>
-      </article>
-    </div>
+            <div class="info">
+              <h3 class="title">{{ e.title }}</h3>
+              <div class="meta">
+                <span class="chip">{{ e.dateLine }}</span>
+                <span class="chip" *ngIf="e.location">{{ e.location }}</span>
+              </div>
+              <div class="spots" *ngIf="e.spotsLeft !== undefined">Quedan {{ e.spotsLeft }} plazas</div>
+              <div class="actions">
+                <a routerLink="/contacto" class="btn btn-primary btn-white-text">Reservar</a>
+              </div>
+            </div>
+          </article>
+        </ng-container>
+      </div>
+    </ng-container>
 
     <ng-template #noData>
       <p class="muted">Muy pronto añadiremos nuevas fechas. Puedes consultar la <a routerLink="/agenda">agenda completa</a>.</p>
