@@ -5,7 +5,7 @@
       <span class="brand__name">KAIRÓS</span>
     </a>
 
-    <!-- NAV ESCRITORIO -->
+    <!-- Menú escritorio -->
     <nav class="nav nav--desktop" aria-label="Principal">
       <a routerLink="/inicio" routerLinkActive="is-active">Inicio</a>
       <a routerLink="/servicios" routerLinkActive="is-active">Servicios</a>
@@ -16,17 +16,19 @@
       <a routerLink="/contacto" routerLinkActive="is-active">Contacto</a>
     </nav>
 
-    <!-- ACCIONES ESCRITORIO -->
+    <!-- Acciones escritorio -->
     <div class="actions actions--desktop">
       <a routerLink="/contacto" class="btn btn-primary">Reservar</a>
       <a routerLink="/comunidad" class="btn btn-outline">Unirme</a>
     </div>
 
-    <!-- BURGER MÓVIL -->
+    <!-- Burger móvil -->
     <button
       class="burger"
       type="button"
       aria-label="Abrir menú"
+      [attr.aria-expanded]="menuOpen"
+      aria-controls="mobile-panel"
       (click)="toggleMenu()"
       [class.is-open]="menuOpen">
       <span class="line"></span>
@@ -34,24 +36,23 @@
       <span class="line"></span>
     </button>
   </div>
-
-  <!-- OVERLAY MÓVIL -->
-  <div class="overlay" *ngIf="menuOpen" (click)="closeMenu()"></div>
-
-  <!-- PANEL MÓVIL -->
-  <aside class="panel" [class.is-open]="menuOpen" aria-label="Menú móvil">
-    <nav class="panel__nav">
-      <a routerLink="/inicio" (click)="closeMenu()">Inicio</a>
-      <a routerLink="/servicios" (click)="closeMenu()">Servicios</a>
-      <a routerLink="/agenda" (click)="closeMenu()">Agenda</a>
-      <a routerLink="/comunidad" (click)="closeMenu()">Comunidad</a>
-      <a routerLink="/equipo" (click)="closeMenu()">Equipo</a>
-      <a routerLink="/blog" (click)="closeMenu()">Blog</a>
-      <a routerLink="/contacto" (click)="closeMenu()">Contacto</a>
-    </nav>
-    <div class="panel__actions">
-      <a routerLink="/contacto" class="btn btn-primary" (click)="closeMenu()">Reservar</a>
-      <a routerLink="/comunidad" class="btn btn-outline" (click)="closeMenu()">Unirme</a>
-    </div>
-  </aside>
 </header>
+
+<!-- IMPORTANTE: overlay y panel FUERA del <header> -->
+<div class="overlay" *ngIf="menuOpen" (click)="closeMenu()"></div>
+
+<aside id="mobile-panel" class="panel" [class.is-open]="menuOpen" aria-label="Menú móvil">
+  <nav class="panel__nav">
+    <a routerLink="/inicio" (click)="closeMenu()">Inicio</a>
+    <a routerLink="/servicios" (click)="closeMenu()">Servicios</a>
+    <a routerLink="/agenda" (click)="closeMenu()">Agenda</a>
+    <a routerLink="/comunidad" (click)="closeMenu()">Comunidad</a>
+    <a routerLink="/equipo" (click)="closeMenu()">Equipo</a>
+    <a routerLink="/blog" (click)="closeMenu()">Blog</a>
+    <a routerLink="/contacto" (click)="closeMenu()">Contacto</a>
+  </nav>
+  <div class="panel__actions">
+    <a routerLink="/contacto" class="btn btn-primary" (click)="closeMenu()">Reservar</a>
+    <a routerLink="/comunidad" class="btn btn-outline" (click)="closeMenu()">Unirme</a>
+  </div>
+</aside>

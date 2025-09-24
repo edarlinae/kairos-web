@@ -5,12 +5,11 @@ import { NgIf } from '@angular/common';
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [RouterLink, RouterLinkActive, NgIf], // 👈 añade NgIf
+  imports: [RouterLink, RouterLinkActive, NgIf],
   styleUrls: ['./header.component.scss'],
   templateUrl: './header.component.html',
 })
 export class HeaderComponent {
-  logoUrl = '/assets/logoKairos.png';
   menuOpen = false;
 
   toggleMenu() { this.menuOpen = !this.menuOpen; }
@@ -18,6 +17,6 @@ export class HeaderComponent {
 
   @HostListener('window:resize')
   onResize() {
-    if (window.innerWidth >= 980 && this.menuOpen) this.menuOpen = false;
+    if (window.innerWidth >= 981 && this.menuOpen) this.menuOpen = false;
   }
 }
