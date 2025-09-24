@@ -1,5 +1,5 @@
-import { ApplicationConfig, importProvidersFrom } from '@angular/core';
-import { provideRouter } from '@angular/router';
+import { ApplicationConfig } from '@angular/core';
+import { provideRouter, withInMemoryScrolling } from '@angular/router';
 import { routes } from './app.routes';
 import { provideHttpClient } from '@angular/common/http';
 import { LOCALE_ID } from '@angular/core';
@@ -10,7 +10,13 @@ registerLocaleData(localeEs);
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideRouter(routes),
+    provideRouter(
+      routes,
+      withInMemoryScrolling({
+        scrollPositionRestoration: 'enabled', // o 'top' si quieres SIEMPRE arriba
+        anchorScrolling: 'enabled',
+      })
+    ),
     provideHttpClient(),
     { provide: LOCALE_ID, useValue: 'es-ES' },
   ],
