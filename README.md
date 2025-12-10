@@ -1,27 +1,65 @@
-# KairosWeb
+# 🌐 Kairos Web – Aplicación en Angular 17+
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.17.
+Proyecto desarrollado en **Angular 17+** para la creación de un sitio web corporativo moderno, modular y escalable.  
+Este repositorio tiene un enfoque **frontend técnico**, mostrando buenas prácticas en organización de código, arquitectura con **Standalone Components** y despliegue optimizado.
 
-## Development server
+🔗 **[Demo en Producción](https://www.gabinetekairos.es/)**  
+🔗 **[Repositorio en GitHub](https://github.com/edarlinae/kairos-web)**
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+---
 
-## Code scaffolding
+## 📜 Descripción Técnica
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+El proyecto consiste en una **SPA (Single Page Application)** desarrollada con Angular en su última versión estable.  
+Está diseñado para ser **modular**, **responsivo** y **escalable**, con posibilidad de añadir backend en el futuro.
 
-## Build
+Incluye:
+- Routing standalone con lazy loading.  
+- Consumo de datos desde archivos JSON en `/assets/`.  
+- Arquitectura de carpetas clara: separación de **pages**, **layout**, **services** y **models**.  
+- Preparado para integrarse con una API REST o CMS.  
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+---
 
-## Running unit tests
+## ✨ Características Técnicas
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- ⚡ **Angular 17+** con Standalone Components.  
+- 🎨 **SCSS modular** con estilos globales y parciales.  
+- 📱 **Responsive Design** (mobile-first).  
+- 🌍 Preparado para **internacionalización (i18n)**.  
+- 🗂️ Datos gestionados desde JSON (`blog.json`, `agenda.json`).  
+- 🚀 Despliegue en **Vercel** con soporte para `_redirects`.  
 
-## Running end-to-end tests
+---
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## 📂 Estructura de Carpetas
 
-## Further help
+```bash
+kairos-web/
+│── angular.json
+│── package.json
+│── tsconfig.json
+│── src/
+    │── app/
+    │   │── layout/        # Componentes de layout (navbar, footer…)
+    │   │── models/        # Interfaces y tipados
+    │   │── pages/         # Páginas principales (home, blog, contacto…)
+    │   │── services/      # Servicios (blog, agenda, contacto…)
+    │   │── app.component.* 
+    │   │── app.routes.ts
+    │
+    │── assets/            # Datos estáticos (JSON, imágenes, logo…)
+    │── environments/      # Configuración de entornos
+    │── index.html         # Entrada principal
+    │── styles.scss        # Estilos globales
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+🛠️ Tecnologías Utilizadas
+- Categoría	Tecnologías
+- Framework	Angular (v17+)
+- Lenguajes	TypeScript, JavaScript (ES6+)
+- Estilos	SCSS, CSS3, Flex/Grid Layout
+- UI	Angular Animations, Heroicons SVG
+- Arquitectura	Standalone Components, Lazy Loading Routes
+Estado	RxJS (BehaviorSubject)
+Control de versiones	Git + GitHub
+Despliegue	Vercel
