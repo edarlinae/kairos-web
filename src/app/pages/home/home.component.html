@@ -1,52 +1,66 @@
+<!-- POPUP NAVIDEÑO -->
+<div class="holiday-popup-backdrop" *ngIf="showHolidayPopup">
+  <div class="holiday-popup">
+    <button class="holiday-popup__close" (click)="closeHolidayPopup()" aria-label="Cerrar aviso">×</button>
+
+    <div class="holiday-popup__icon">✨🎄✨</div>
+
+    <h2 class="holiday-popup__title">¡Felices fiestas!</h2>
+
+    <p class="holiday-popup__text">
+      El gabinete permanecerá <strong>cerrado por vacaciones</strong>
+      del <strong>22 de diciembre</strong> al <strong>8 de enero</strong>.
+    </p>
+
+    <p class="holiday-popup__text">
+      Durante estos días no podremos responder con normalidad.
+      Te deseamos descanso, calma y buena compañía.
+    </p>
+
+    <button class="holiday-popup__button" (click)="closeHolidayPopup()">De acuerdo</button>
+  </div>
+</div>
+
+
 <!-- HERO PRINCIPAL -->
 <section class="hero">
   <div class="container hero__inner">
     <div class="hero__content">
-      <!-- Logo grande -->
+
+      <!-- Logo -->
       <img src="/assets/logoKairos.png" alt="Kairós" class="hero__logo" />
 
-      <!-- Nombre -->
+      <!-- Título -->
       <h1 class="font-cinzel hero__title">Kairós</h1>
 
-      <!-- Frase -->
+      <!-- Subtítulo -->
       <p class="hero__subtitle">
-        Cuidamos tu bienestar en cuerpo, mente y conexión social,
-        tanto en persona como en línea.
+        Cuidamos tu bienestar en cuerpo, mente y conexión social, tanto en persona como en línea.
       </p>
 
-      <!-- CTAs (sin funcionalidad por ahora) -->
-      <!-- CTAs -->
+      <!-- Botones -->
       <div class="hero__cta">
-        <button class="btn btn-primary"
-                type="button"
-                [routerLink]="'/contacto'"
-                aria-label="Reservar un taller">
-          Reservar Taller
-        </button>
-
-        <button class="btn btn-outline"
-                type="button"
-                [routerLink]="'/comunidad'"
-                aria-label="Unirme a la comunidad">
-          Unirme a la Comunidad
-        </button>
+        <button class="btn btn-primary" [routerLink]="'/contacto'">Reservar Taller</button>
+        <button class="btn btn-outline" [routerLink]="'/comunidad'">Unirme a la Comunidad</button>
       </div>
 
-
-      <!-- Nota legal corta -->
+      <!-- Nota -->
       <p class="hero__note">Talleres y charlas de bienestar.</p>
     </div>
   </div>
 </section>
 
-<!-- CÓMO TRABAJAMOS -->
+
+<!-- SECCIÓN CÓMO TRABAJAMOS -->
 <section class="container how">
   <div class="card how__card">
     <h2 class="font-cinzel how__title">¿Cómo trabajamos?</h2>
+
     <p class="how__text">
-      Vivencia presencial + continuidad online. Disfruta de talleres transformadores y
-      mantén el impulso con nuestra comunidad digital.
+      Vivencia presencial + continuidad online. Disfruta de talleres transformadores
+      y mantén el impulso con nuestra comunidad digital.
     </p>
+
     <div class="how__actions">
       <a routerLink="/servicios" class="btn btn-outline">Ver servicios</a>
       <a routerLink="/blog" class="btn btn-outline">Últimas publicaciones</a>
