@@ -1,66 +1,73 @@
 <!-- POPUP NAVIDEÑO -->
 <div class="holiday-popup-backdrop" *ngIf="showHolidayPopup">
-  <div class="holiday-popup">
-    <button class="holiday-popup__close" (click)="closeHolidayPopup()" aria-label="Cerrar aviso">×</button>
-
-    <div class="holiday-popup__icon">✨🎄✨</div>
-
-    <h2 class="holiday-popup__title">¡Felices fiestas!</h2>
-
+  <div class="holiday-popup" role="dialog" aria-modal="true" aria-labelledby="holidayPopupTitle">
+    <p class="holiday-popup__eyebrow">Aviso importante</p>
+    <h2 id="holidayPopupTitle" class="font-cinzel holiday-popup__title">
+      Felices fiestas desde Kairós
+    </h2>
     <p class="holiday-popup__text">
-      El gabinete permanecerá <strong>cerrado por vacaciones</strong>
-      del <strong>22 de diciembre</strong> al <strong>8 de enero</strong>.
+      El gabinete permanecerá cerrado por vacaciones
+      del <strong>22 de diciembre</strong> al <strong>8 de enero</strong> (incluidos).
     </p>
-
-    <p class="holiday-popup__text">
-      Durante estos días no podremos responder con normalidad.
-      Te deseamos descanso, calma y buena compañía.
+    <p class="holiday-popup__text holiday-popup__text--secondary">
+      Te deseamos unas fiestas llenas de calma, cuidado y buenos momentos.
     </p>
-
-    <button class="holiday-popup__button" (click)="closeHolidayPopup()">De acuerdo</button>
+    <button
+      type="button"
+      class="btn btn-primary holiday-popup__btn"
+      (click)="closeHolidayPopup()">
+      Entendido
+    </button>
   </div>
 </div>
-
 
 <!-- HERO PRINCIPAL -->
 <section class="hero">
   <div class="container hero__inner">
     <div class="hero__content">
-
-      <!-- Logo -->
+      <!-- Logo grande -->
       <img src="/assets/logoKairos.png" alt="Kairós" class="hero__logo" />
 
-      <!-- Título -->
+      <!-- Nombre -->
       <h1 class="font-cinzel hero__title">Kairós</h1>
 
-      <!-- Subtítulo -->
+      <!-- Frase -->
       <p class="hero__subtitle">
-        Cuidamos tu bienestar en cuerpo, mente y conexión social, tanto en persona como en línea.
+        Cuidamos tu bienestar en cuerpo, mente y conexión social,
+        tanto en persona como en línea.
       </p>
 
-      <!-- Botones -->
+      <!-- CTAs -->
       <div class="hero__cta">
-        <button class="btn btn-primary" [routerLink]="'/contacto'">Reservar Taller</button>
-        <button class="btn btn-outline" [routerLink]="'/comunidad'">Unirme a la Comunidad</button>
+        <button class="btn btn-primary"
+                type="button"
+                [routerLink]="'/contacto'"
+                aria-label="Reservar un taller">
+          Reservar Taller
+        </button>
+
+        <button class="btn btn-outline"
+                type="button"
+                [routerLink]="'/comunidad'"
+                aria-label="Unirme a la comunidad">
+          Unirme a la Comunidad
+        </button>
       </div>
 
-      <!-- Nota -->
+      <!-- Nota legal corta -->
       <p class="hero__note">Talleres y charlas de bienestar.</p>
     </div>
   </div>
 </section>
 
-
-<!-- SECCIÓN CÓMO TRABAJAMOS -->
+<!-- CÓMO TRABAJAMOS -->
 <section class="container how">
   <div class="card how__card">
     <h2 class="font-cinzel how__title">¿Cómo trabajamos?</h2>
-
     <p class="how__text">
-      Vivencia presencial + continuidad online. Disfruta de talleres transformadores
-      y mantén el impulso con nuestra comunidad digital.
+      Vivencia presencial + continuidad online. Disfruta de talleres transformadores y
+      mantén el impulso con nuestra comunidad digital.
     </p>
-
     <div class="how__actions">
       <a routerLink="/servicios" class="btn btn-outline">Ver servicios</a>
       <a routerLink="/blog" class="btn btn-outline">Últimas publicaciones</a>
